@@ -9,9 +9,9 @@ type Item struct {
 	CategoryID  uint
 	Description string  `uadmin:"required"`
 	Price       float64 `uadmin:"required"`
-	Featured    bool    `uadmin:"search;required"`
-	Hidden      bool    `uadmin:"search;required"`
-	Quantity    int     `uadmin:"edit:read_only"`
+	Featured    bool    `uadmin:"search"`
+	Hidden      bool    `uadmin:"search"`
+	Quantity    int     `uadmin:"required;read_only:edit"`
 	Remaining   int     `uadmin:"read_only"`
 }
 
