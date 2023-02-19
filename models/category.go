@@ -5,9 +5,9 @@ import "github.com/uadmin/uadmin"
 type Category struct {
 	uadmin.Model
 	Name     string `uadmin:"required"`
-	Featured bool   `uadmin:"default_value:false"`
-	Active   bool   `uadmin:"default_value:false"`
-	Hidden   bool   `uadmin:"default_value:false"`
+	Featured bool
+	Active   bool
+	Hidden   bool
 }
 
 func (c *Category) String() string {

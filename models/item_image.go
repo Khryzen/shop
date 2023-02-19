@@ -7,7 +7,7 @@ type ItemImage struct {
 	Image  string `uadmin:"image"`
 	Item   Item   `uadmin:"required"`
 	ItemID uint
-	Active bool `uadmin:"required;default_value:true"`
+	Active bool
 }
 
 func (i *ItemImage) String() string {
