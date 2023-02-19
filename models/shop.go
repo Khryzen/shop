@@ -22,7 +22,7 @@ func (s Shop) String() string {
 func (s Shop) Validate() map[string]interface{} {
 	shop := Shop{}
 	c := map[string]interface{}{}
-	if s.Active == true {
+	if s.Active {
 		if uadmin.Count(&shop, "active = ?", true) > 0 {
 			c["Active"] = "Only 1 active shop is allowed."
 		}
