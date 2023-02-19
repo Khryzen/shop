@@ -11,7 +11,7 @@ func main() {
 
 func DBSettings() {
 	uadmin.Database = &uadmin.DBSettings{
-		Type:     "myslq",
+		Type:     "mysql",
 		Name:     "shop",
 		User:     "root",
 		Password: "Allen is Great 200%",
