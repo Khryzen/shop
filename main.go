@@ -25,6 +25,7 @@ func DBSettings() {
 func RegisterModels() {
 	uadmin.Register(
 		models.Shop{},
+		models.Category{},
 	)
 }
 
