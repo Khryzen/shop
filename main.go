@@ -24,10 +24,16 @@ func DBSettings() {
 
 func RegisterModels() {
 	uadmin.Register(
+		models.Address{},
+		models.Barangay{},
+		models.City{},
 		models.Category{},
+		models.Customer{},
 		models.Item{},
 		models.ItemImage{},
 		models.Shop{},
+		models.Province{},
+		models.Region{},
 	)
 }
 
