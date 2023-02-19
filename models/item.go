@@ -11,6 +11,8 @@ type Item struct {
 	Price       float64 `uadmin:"required"`
 	Featured    bool    `uadmin:"search;required;default_value:false"`
 	Hidden      bool    `uadmin:"search;required;default_value:false"`
+	Quantity    int     `uadmin:"edit:read_only"`
+	Remaining   int     `uadmin:"read_only"`
 }
 
 func (i *Item) String() string {
