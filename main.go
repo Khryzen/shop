@@ -1,6 +1,9 @@
 package main
 
-import "github.com/uadmin/uadmin"
+import (
+	"github.com/mbdeguzman/shopping/models"
+	"github.com/uadmin/uadmin"
+)
 
 func main() {
 	DBSettings()
@@ -20,7 +23,9 @@ func DBSettings() {
 }
 
 func RegisterModels() {
-	uadmin.Register()
+	uadmin.Register(
+		models.Shop{},
+	)
 }
 
 func RegisterHandlers() {
