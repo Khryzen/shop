@@ -5,3 +5,5 @@ media/otp/*
 .jwt
 syslog.log
 shopping.exe
+go.mod
+go.sum
