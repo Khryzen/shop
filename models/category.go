@@ -10,11 +10,11 @@ type Category struct {
 	Hidden   bool   `uadmin:"default_value:false"`
 }
 
-func (c Category) String() string {
+func (c *Category) String() string {
 	return c.Name
 }
 
-func (c Category) Validate() map[string]interface{} {
+func (c *Category) Validate() map[string]interface{} {
 	category := Category{}
 	errMsg := map[string]interface{}{}
 	if c.Featured {
