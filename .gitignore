@@ -1,0 +1,6 @@
+static/i18n/*
+media/otp/*
+.salt
+.key
+.jwt
+syslog.log
