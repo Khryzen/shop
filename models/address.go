@@ -34,5 +34,7 @@ type Province struct {
 
 type Region struct {
 	uadmin.Model
+	Code string `uadmin:"required"`
 	Name string `uadmin:"required"`
+	Href string `uadmin:"required"`
 }

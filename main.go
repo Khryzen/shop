@@ -9,6 +9,7 @@ func main() {
 	DBSettings()
 	RegisterModels()
 	RegisterHandlers()
+	InitialData()
 	ServerConfig()
 }
 
