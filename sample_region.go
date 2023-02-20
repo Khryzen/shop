@@ -41,6 +41,7 @@ func fetchRegion() {
 	var data RegionsResponse
 	err = json.Unmarshal([]byte(respstr), &data)
 	CheckErr(err)
+
 	regs := []models.Region{}
 	uadmin.All(&regs)
 	for _, reg := range data.Data {
