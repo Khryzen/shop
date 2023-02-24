@@ -15,16 +15,8 @@ type Regions struct {
 	Href string `json:"href"`
 }
 
-type Pagination struct {
-	Total    int `json:"total"`
-	PerPage  int `json:"perPage"`
-	Page     int `json:"page"`
-	LastPage int `json:"lastPage"`
-}
-
 type RegionsResponse struct {
-	Pagination Pagination `json:"pagination"`
-	Data       []Regions  `json:"data"`
+	Data []Regions `json:"data"`
 }
 
 func fetchRegion() {
