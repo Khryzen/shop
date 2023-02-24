@@ -19,7 +19,12 @@ type Address struct {
 
 type Barangay struct {
 	uadmin.Model
-	Name string `uadmin:"required"`
+	Code         string `uadmin:"required"`
+	Name         string `uadmin:"required"`
+	RegionCode   string `uadmin:"required"`
+	ProvinceCode string `uadmin:"required"`
+	CityCode     string `uadmin:"required"`
+	Href         string `uadmin:"required"`
 }
 
 type City struct {
