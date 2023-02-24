@@ -4,4 +4,5 @@ func InitialData() {
 	fetchRegion()
 	fetchProvinces()
 	fetchCities()
+	fetchBarangays()
 }
