@@ -43,7 +43,6 @@ func fetchCities() {
 	cityList := CityList{}
 	err = json.Unmarshal([]byte(respstr), &cityList)
 	CheckErr(err)
-	// uadmin.Trail(uadmin.DEBUG, "CITIES: %v", cityList.Data)
 
 	cities := []models.City{}
 	uadmin.All(&cities)
@@ -66,5 +65,63 @@ func fetchCities() {
 			uadmin.Trail(uadmin.INFO, "New city has been added.")
 		}
 	}
+}
 
+type Pagination_Province struct {
+	Total    int `json:"total"`
+	PerPage  int `json:"perPage"`
+	Page     int `json:"page"`
+	LastPage int `json:"lastPage"`
+}
+
+type Provinces struct {
+	ID         string `json:"id"`
+	Name       string `json:"name"`
+	RegionCode string `json:"region_code"`
+	Href       string `json:"href"`
+}
+
+type ProvincesList struct {
+	Pagination Pagination  `json:"pagination"`
+	Provinces  []Provinces `json:"data"`
+}
+
+func fetchProvinces() {
+	url := "https://ph-locations-api.buonzz.com/v1/provinces"
+	req, err := http.NewRequest("GET", url, nil)
+	CheckErr(err)
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	CheckErr(err)
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	CheckErr(err)
+	respstr := string(body)
+	provinceList := ProvincesList{}
+	err = json.Unmarshal([]byte(respstr), &provinceList)
+	CheckErr(err)
+
+	uadmin.Trail(uadmin.DEBUG, "Provinces: %v", provinceList)
+
+	prov := []models.Province{}
+	uadmin.All(&prov)
+
+	for _, prv := range provinceList.Provinces {
+		isExisting := false
+
+		for _, d_prov := range prov {
+			if prv.ID == d_prov.Code {
+				isExisting = true
+			}
+		}
+		if !isExisting {
+			prov_val := models.Province{}
+			prov_val.Code = prv.ID
+			prov_val.Name = prv.Name
+			prov_val.RegionCode = prv.RegionCode
+			prov_val.Href = prv.Href
+			uadmin.Save(&prov_val)
+			uadmin.Trail(uadmin.INFO, "New province has been saved.")
+		}
+	}
 }

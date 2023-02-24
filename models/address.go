@@ -33,7 +33,10 @@ type City struct {
 
 type Province struct {
 	uadmin.Model
-	Name string `uadmin:"required"`
+	Code       string `uadmin:"required"`
+	Name       string `uadmin:"required"`
+	RegionCode string `uadmin:"required"`
+	Href       string `uadmin:"required"`
 }
 
 type Region struct {
