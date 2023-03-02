@@ -1,7 +1,10 @@
 package main
 
 import (
+	"net/http"
+
 	"github.com/mbdeguzman/shopping/models"
+	"github.com/mbdeguzman/shopping/views"
 	"github.com/uadmin/uadmin"
 )
 
@@ -39,7 +42,7 @@ func RegisterModels() {
 }
 
 func RegisterHandlers() {
-
+	http.HandleFunc("/", uadmin.Handler(views.IndexHandler))
 }
 
 func ServerConfig() {
