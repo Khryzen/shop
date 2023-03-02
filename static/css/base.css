@@ -1,0 +1,23 @@
+* {
+  margin: .5rem
+}
+.container {
+  display: flex
+}
+header {
+  height: 5vh;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+}
+section.body {
+  height: 85vh
+}
+footer {
+  height: 5vh
+}
+.logo {
+  height: 5vh;
+  border-radius: 50%
+}
